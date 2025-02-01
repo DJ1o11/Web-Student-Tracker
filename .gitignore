@@ -41,4 +41,5 @@
 .env
 
 # SmartTomcat plugin configuration
-/.smarttomcat/.DS_Store
+/.smarttomcat/
+
