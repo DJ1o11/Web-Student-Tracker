@@ -28,27 +28,34 @@ This is a web application for tracking students using Java, JSP, and JSTL. The a
 
 ### Database Setup
 
-1. Create a MySQL database named `web_student_tracker`.
-2. Execute the SQL scripts in the `sql` directory to create the necessary tables and insert initial data.
-
+1. Create a MySQL user and grant privileges:
     ```sql
-    -- create-database.sql
-    CREATE DATABASE web_student_tracker;
+    -- 01-create-user.sql
+    CREATE USER 'webstudent'@'localhost' IDENTIFIED BY 'webstudent';
+    GRANT ALL PRIVILEGES ON * . * TO 'webstudent'@'localhost';
+    ```
 
-    -- create-tables.sql
-    USE web_student_tracker;
-    CREATE TABLE student (
-        id INT NOT NULL AUTO_INCREMENT,
-        first_name VARCHAR(45) NOT NULL,
-        last_name VARCHAR(45) NOT NULL,
-        email VARCHAR(45) NOT NULL,
-        PRIMARY KEY (id)
-    );
+2. Create the database and tables, and insert initial data:
+    ```sql
+    -- 02-student-tracker.sql
+    CREATE DATABASE IF NOT EXISTS `web_student_tracker` /*!40100 DEFAULT CHARACTER SET latin1 */;
+    USE `web_student_tracker`;
 
-    -- insert-data.sql
-    USE web_student_tracker;
-    INSERT INTO student (first_name, last_name, email) VALUES ('John', 'Doe', 'john.doe@example.com');
-    INSERT INTO student (first_name, last_name, email) VALUES ('Jane', 'Smith', 'jane.smith@example.com');
+    DROP TABLE IF EXISTS `student`;
+    CREATE TABLE `student` (
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `first_name` varchar(45) DEFAULT NULL,
+      `last_name` varchar(45) DEFAULT NULL,
+      `email` varchar(45) DEFAULT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+    INSERT INTO `student` VALUES
+    (1,'Mary','Public','mary@luv2code.com'),
+    (2,'John','Doe','john@luv2code.com'),
+    (3,'Ajay','Rao','ajay@luv2code.com'),
+    (4,'Bill','Neely','bill@luv2code.com'),
+    (5,'Maxwell','Dixon','max@luv2code.com');
     ```
 
 ### Configuration
