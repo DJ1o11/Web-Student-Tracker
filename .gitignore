@@ -1,0 +1,44 @@
+# Default ignored files
+/shelf/
+
+# Editor-based HTTP Client requests
+/httpRequests/
+
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# Maven target directory
+/target/
+
+# IntelliJ IDEA project files
+/.idea/
+/*.iml
+
+# macOS system files
+.DS_Store
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Generated files
+*.generated
+
+# Environment variable files
+.env
+
+# SmartTomcat plugin configuration
+/.smarttomcat/.DS_Store
