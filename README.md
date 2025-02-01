@@ -14,7 +14,7 @@ This is a web application for tracking students using Java, JSP, and JSTL. The a
 ## Project Structure
 
 - `src/main/java/com/djain/web/jdbc/`: Contains Java classes for database operations and servlets.
-- `WebContent/`: Contains JSP files and other web resources.
+- `src/main/webapp/`: Contains JSP files and other web resources.
 - `sql/`: Contains SQL scripts for database setup.
 
 ## Setup Instructions
@@ -60,7 +60,7 @@ This is a web application for tracking students using Java, JSP, and JSTL. The a
 
 ### Configuration
 
-1. Configure the datasource in `context.xml` or `web.xml`:
+1. Configure the datasource in `context.xml`:
 
     ```xml
     <Resource name="jdbc/web_student_tracker"
@@ -69,10 +69,10 @@ This is a web application for tracking students using Java, JSP, and JSTL. The a
               maxTotal="100"
               maxIdle="30"
               maxWaitMillis="10000"
-              username="your-username"
-              password="your-password"
+              username="webstudent"
+              password="webstudent"
               driverClassName="com.mysql.cj.jdbc.Driver"
-              url="jdbc:mysql://localhost:3306/web_student_tracker"/>
+              url="jdbc:mysql://localhost:3306/web_student_tracker?allowPublicKeyRetrieval=true&amp;useSSL=False&amp;serverTimezone=UTC"/>
     ```
 
 2. Update the `pom.xml` file with the necessary dependencies:
@@ -119,7 +119,7 @@ This is a web application for tracking students using Java, JSP, and JSTL. The a
 
 - Ensure the database is running and accessible.
 - Check the Tomcat logs for any errors.
-- Verify the datasource configuration in `context.xml` or `web.xml`.
+- Verify the datasource configuration in `context.xml`.
 
 ## License
 
